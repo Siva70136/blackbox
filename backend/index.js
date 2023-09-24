@@ -6,6 +6,12 @@ const app = express()
 
 // app.use(express.json())
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://blackbox-lemon.vercel.app');
+  // You can specify more headers and methods as needed
+  next();
+});
+
 mongoose.connect('mongodb+srv://siva:L7vTobLaY5ndDoaY@cluster0.6nug7fa.mongodb.net/test?retryWrites=true&w=majority');
 
 
