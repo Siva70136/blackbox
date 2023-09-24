@@ -4,13 +4,7 @@ const cors = require('cors')
 //const RegisterModel = require('./models/Register')
 
 const app = express()
-app.use(cors(
-    {
-        origin: ["https://blackbox-lemon.vercel.app"],
-        methods: ["POST", "GET"],
-        credentials: true
-    }
-));
+
 app.use(express.json())
 
 mongoose.connect('mongodb+srv://siva:L7vTobLaY5ndDoaY@cluster0.6nug7fa.mongodb.net/test?retryWrites=true&w=majority');
