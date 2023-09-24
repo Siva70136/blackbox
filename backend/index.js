@@ -12,6 +12,14 @@ app.use((req, res, next) => {
   next();
 });
 
+app.options('*', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://blackbox-lemon.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.status(200).send();
+});
+
+
 mongoose.connect('mongodb+srv://siva:L7vTobLaY5ndDoaY@cluster0.6nug7fa.mongodb.net/test?retryWrites=true&w=majority');
 
 
