@@ -6,7 +6,7 @@ const Home = (props) => {
 
     useEffect(() => {
         const getInfo = async () => {
-            const rseponse = await fetch("https://blackbox-wi5w.vercel.app/api/data");
+            const rseponse = await fetch("https://blackbox-ryvn.vercel.app/");
             const data = await rseponse.json();
             console.log(data);
         }
