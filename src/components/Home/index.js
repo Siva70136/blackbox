@@ -6,7 +6,7 @@ const Home = (props) => {
 
     useEffect(() => {
         const getInfo = async () => {
-            const rseponse = await fetch("http://localhost:3001");
+            const rseponse = await fetch("https://react-crud-v3am.onrender.com/");
             const data = await rseponse.json();
             console.log(data);
         }
