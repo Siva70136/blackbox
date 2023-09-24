@@ -1,23 +1,17 @@
 const express = require('express')
 const mongoose = require('mongoose')
-
+const cors = require("cors")
 
 const app = express()
 
-// app.use(express.json())
-
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://blackbox-lemon.vercel.app');
-  // You can specify more headers and methods as needed
-  next();
-});
-
-app.options('*', (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://blackbox-lemon.vercel.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  res.status(200).send();
-});
+app.use(cors(
+    {
+        origin: ["https://blackbox-lemon.vercel.app/"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
+app.use(express.json())
 
 
 mongoose.connect('mongodb+srv://siva:L7vTobLaY5ndDoaY@cluster0.6nug7fa.mongodb.net/test?retryWrites=true&w=majority').then(()=>{
@@ -28,9 +22,7 @@ mongoose.connect('mongodb+srv://siva:L7vTobLaY5ndDoaY@cluster0.6nug7fa.mongodb.n
 
 
 app.get("/", (req, res) => {
-        const database = client.db('siva'); // Replace 'your-database-name' with your actual database name
-        const collection = database.collection('stocks');
-        const stocks = await collection.find({}).toArray();
+
     res.json("hello");
 })
 app.post('/register', (req, res) => {
