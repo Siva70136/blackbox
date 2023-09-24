@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
         const database = client.db('siva'); // Replace 'your-database-name' with your actual database name
         const collection = database.collection('stocks');
         const stocks = await collection.find({}).toArray();
-    res.json(stocks);
+    res.json("hello");
 })
 app.post('/register', (req, res) => {
     const {name, email, password} = req.body;
