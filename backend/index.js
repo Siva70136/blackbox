@@ -20,7 +20,11 @@ app.options('*', (req, res) => {
 });
 
 
-mongoose.connect('mongodb+srv://siva:L7vTobLaY5ndDoaY@cluster0.6nug7fa.mongodb.net/test?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://siva:L7vTobLaY5ndDoaY@cluster0.6nug7fa.mongodb.net/test?retryWrites=true&w=majority').then(()=>{
+    console.log("MongoDB is Connected..")
+}).catch(err=>{
+    console.log(err.message);
+})
 
 
 app.get("/", (req, res) => {
