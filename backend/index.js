@@ -24,7 +24,10 @@ mongoose.connect('mongodb+srv://siva:L7vTobLaY5ndDoaY@cluster0.6nug7fa.mongodb.n
 
 
 app.get("/", (req, res) => {
-    res.json("Hello");
+        const database = client.db('siva'); // Replace 'your-database-name' with your actual database name
+        const collection = database.collection('stocks');
+        const stocks = await collection.find({}).toArray();
+    res.json(stocks);
 })
 app.post('/register', (req, res) => {
     const {name, email, password} = req.body;
