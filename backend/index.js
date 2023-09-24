@@ -9,7 +9,7 @@ app.use(express.json())
 mongoose.connect('mongodb+srv://siva:L7vTobLaY5ndDoaY@cluster0.6nug7fa.mongodb.net/test?retryWrites=true&w=majority');
 
 
-app.get("/api/data", (req, res) => {
+app.get("/", (req, res) => {
     res.json("Hello");
 })
 app.post('/register', (req, res) => {
