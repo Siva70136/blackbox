@@ -14,7 +14,7 @@ const Home = (props) => {
         name: '',
         category: '',
         price: '',
-        quantity: '',
+       quantinity: '',
         description: '',
     });
 
@@ -43,7 +43,7 @@ const Home = (props) => {
                 name: '',
                 category: '',
                 price: '',
-                quantity: '',
+                quantinity: '',
                 description: '',
             });
 
@@ -118,7 +118,7 @@ const Home = (props) => {
                         <input
                             type="text"
                             name="quantity"
-                            value={formData.quantity}
+                            value={formData.quantinity}
                             onChange={handleChange}
                             className="input"
                         />
@@ -157,7 +157,7 @@ const Home = (props) => {
                                         <td>{item.name}</td>
                                         <td>{item.category}</td>
                                         <td>{item.price}</td>
-                                        <td>{item.quantity}</td>
+                                        <td>{item.quantinity}</td>
                                         <td>{item.description}</td>
                                     </tr>
                                 ))}
