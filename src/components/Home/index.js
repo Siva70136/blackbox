@@ -39,7 +39,13 @@ const Home = (props) => {
             if (response.ok) {
                 const data = await response.json();
                 console.log('Registration successful:', data);
-                setFormData("");
+                setFormData({
+                name: '',
+                category: '',
+                price: '',
+                quantity: '',
+                description: '',
+            });
 
             } else {
                 console.error('Registration failed');
