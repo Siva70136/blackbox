@@ -75,7 +75,7 @@ const Home = (props) => {
             {manager ?
                 <div className="app-container">
 
-                    <form onSubmit={handleSubmit} className="form">
+                    <form  className="form">
                         <h2 className="textHead">Register Form</h2>
 
                         <p className="left">Name:</p>
@@ -126,7 +126,7 @@ const Home = (props) => {
                         />
 
                         <div className="button-container">
-                            <button type="submit" className="button btn">Submit</button>
+                            <button type="submit" className="button btn" onClick={handleSubmit}>Submit</button>
                             <button onClick={logout} className="button btn">Logout</button>
                         </div>
                     </form>
