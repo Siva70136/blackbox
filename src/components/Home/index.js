@@ -6,7 +6,7 @@ const Home = (props) => {
 
     useEffect(() => {
         const getInfo = async () => {
-            const rseponse = await fetch("https://blackbox-ryvn.vercel.app/");
+            const rseponse = await fetch("https://blackbox-ryvn-git-main-siva70136.vercel.app");
             const data = await rseponse.json();
             console.log(data);
         }
