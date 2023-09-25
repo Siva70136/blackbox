@@ -117,7 +117,7 @@ const Home = (props) => {
                         <p className="left">Quantity:</p>
                         <input
                             type="text"
-                            name="quantity"
+                            name="quantinity"
                             value={formData.quantinity}
                             onChange={handleChange}
                             className="input"
