@@ -42,6 +42,7 @@ const Login = (props) => {
                 }
                 else {
                     setEmp(true);
+                    setManager(false);
                 }
             }
             else {
