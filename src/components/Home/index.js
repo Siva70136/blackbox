@@ -62,13 +62,13 @@ const Home = (props) => {
 
         }
         getInfo();
-    })
+    },[])
 
     const logout = () => {
         auth.signOut();
     };
 
-
+  console.log(data);
 
     return (
         <div className='main-container'>
