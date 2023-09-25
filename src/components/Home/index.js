@@ -52,7 +52,8 @@ const Home = (props) => {
 
     useEffect(() => {
         const getInfo = async () => {
-            setIsLoading(true)
+            setIsLoading(true);
+             console.log("start");
             const rseponse = await fetch("https://blackbox-ryvn-git-main-siva70136.vercel.app/users");
             const data = await rseponse.json();
             console.log(data);
