@@ -23,7 +23,7 @@ db.once('open', () => {
 });
 
 
-app.get("/", async (req, res) => {
+app.get("/users", async (req, res) => {
     try {
         const user = RegisterModel.find({});
         console.log(users);
