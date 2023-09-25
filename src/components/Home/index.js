@@ -158,7 +158,10 @@ const Home = (props) => {
                             
                         </table>
                     </div>
-        <button onClick={logout} className="button btn">Logout</button>
+                    <div className="button-container">
+                            
+                            <button onClick={logout} className="button btn">Logout</button>
+                        </div>
                 </div>}
         </div>
     )
