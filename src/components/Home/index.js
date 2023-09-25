@@ -54,7 +54,7 @@ const Home = (props) => {
         const getInfo = async () => {
             setIsLoading(true);
              console.log("start");
-            const rseponse = await fetch("https://blackbox-ryvn-git-main-siva70136.vercel.app/users");
+            const rseponse = await fetch("https://blackbox-guis-siva70136.vercel.app/users");
             const data = await rseponse.json();
             console.log(data);
             setIsLoading(false);
