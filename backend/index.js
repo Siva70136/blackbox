@@ -25,16 +25,15 @@ db.once('open', () => {
 
 app.get("/users", async (req, res) => {
     try {
-        const user = RegisterModel.find({});
+        const users = await RegisterModel.find({}); // Correct variable name is "users"
         console.log(users);
         res.json(users);
-    }
-
-    catch (error) {
+    } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
 
 app.post('/register', (req, res) => {
     const { name, category, price, quantinity, description } = req.body;
