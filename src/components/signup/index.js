@@ -25,7 +25,7 @@ const Login = (props) => {
 
     };
 
-   
+
 
     useEffect(() => {
         auth.onAuthStateChanged(user => {
@@ -69,11 +69,10 @@ const Login = (props) => {
 
 
                             <div className="button-container">
-                                <button className="button" type='submit' onClick={login}>Login</button>
+                                <button className="button btn" type='submit' onClick={login}>Login</button>
+                                <button className="button btn" type='submit' onClick={register}>signup</button>
                             </div>
-                            <div className="button-container">
-                                <button className="button" type='submit' onClick={register}>signup</button>
-                            </div>
+
 
                         </form>
 

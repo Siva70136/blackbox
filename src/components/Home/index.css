@@ -1,0 +1,41 @@
+.item {
+    margin-bottom: 3px;
+}
+
+.btn {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+
+.table-container {
+    max-width: 100%;
+    overflow-x: auto;
+    box-shadow: 0px 4px 16px 0px #bfbfbf;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border: 1px solid black;
+}
+
+th {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid black;
+}
+
+td {
+    text-align: center;
+    padding: 8px;
+    border: 1px solid black;
+}
+
+.texthead {
+    font-weight: bold;
+    color: #e91e63;
+    font-size: 24px;
+}
+
+

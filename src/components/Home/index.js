@@ -1,9 +1,13 @@
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import { auth } from '../.././firebase/firebase';
+import './index.css'
+
 
 const Home = (props) => {
-    const { manager, emp } = props
-    console.log(manager, emp)
+    const { manager } = props
+    console.log(manager)
+    const [data, setData] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
 
     const [formData, setFormData] = useState({
         name: '',
@@ -18,17 +22,42 @@ const Home = (props) => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         // You can submit the formData to your server here
         console.log(formData);
+        try {
+            const response = await fetch('https://blackbox-guis-git-main-siva70136.vercel.app/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+            console.log("HI");
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Registration successful:', data);
+
+            } else {
+                console.error('Registration failed');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+
+
     };
 
     useEffect(() => {
         const getInfo = async () => {
+            setIsLoading(true)
             const rseponse = await fetch("https://blackbox-ryvn-git-main-siva70136.vercel.app");
             const data = await rseponse.json();
             console.log(data);
+            setIsLoading(false);
+            setData(data);
+
         }
         getInfo();
     })
@@ -37,63 +66,97 @@ const Home = (props) => {
         auth.signOut();
     };
 
+
+
     return (
         <div className='main-container'>
             {manager ?
-            <div>
-                <h2>Register Form</h2>
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label>Name:</label>
+                <div className="app-container">
+
+                    <form onSubmit={handleSubmit} className="form">
+                        <h2 className="textHead">Register Form</h2>
+
+                        <p className="left">Name:</p>
                         <input
                             type="text"
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
+                            className="input"
                         />
-                    </div>
-                    <div>
-                        <label>Category:</label>
+
+
+                        <p className="left">Category:</p>
                         <input
                             type="text"
                             name="category"
                             value={formData.category}
                             onChange={handleChange}
+                            className="input"
                         />
-                    </div>
-                    <div>
-                        <label>Price:</label>
+
+
+                        <p className="left">Price:</p>
                         <input
                             type="text"
                             name="price"
                             value={formData.price}
                             onChange={handleChange}
+                            className="input"
                         />
-                    </div>
-                    <div>
-                        <label>Quantity:</label>
+
+                        <p className="left">Quantity:</p>
                         <input
                             type="text"
                             name="quantity"
                             value={formData.quantity}
                             onChange={handleChange}
+                            className="input"
                         />
-                    </div>
-                    <div>
-                        <label>Description:</label>
+
+
+                        <p className="left">Description:</p>
                         <textarea
                             name="description"
                             value={formData.description}
                             onChange={handleChange}
+                            className="input"
                         />
+
+                        <div className="button-container">
+                            <button type="submit" className="button btn">Submit</button>
+                            <button onClick={logout} className="button btn">Logout</button>
+                        </div>
+                    </form>
+                </div> :
+                <div className="">
+                    <div className="table-container">
+                        <h3 className="textHead">Product Information</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><h3 className="texthead">Name</h3></th>
+                                    <th><h3 className="texthead">Category</h3></th>
+                                    <th><h3 className="texthead">Price</h3></th>
+                                    <th><h3 className="texthead">Quantity</h3></th>
+                                    <th><h3 className="texthead">Description</h3></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {data.map((item, index) => (
+                                    <tr key={index}>
+                                        <td>{item.name}</td>
+                                        <td>{item.category}</td>
+                                        <td>{item.price}</td>
+                                        <td>{item.quantity}</td>
+                                        <td>{item.description}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
-                    <button type="submit">Submit</button>
-                </form>
-            </div> : 
-            <div className="">
-                <h1>Emp</h1>
-                <button className="button" type='submit' onClick={logout}>Logout</button>
-            </div>}
+
+                </div>}
         </div>
     )
 };

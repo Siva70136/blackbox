@@ -64,6 +64,8 @@
 }
 .button-container{
     margin-top: 8px;
+    display: flex;
+   
 }
 .icons-container {
     display: flex;
