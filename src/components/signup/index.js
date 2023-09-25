@@ -25,9 +25,7 @@ const Login = (props) => {
 
     };
 
-    const logout = () => {
-        auth.signOut();
-    };
+   
 
     useEffect(() => {
         auth.onAuthStateChanged(user => {

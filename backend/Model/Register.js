@@ -10,4 +10,10 @@ const RegisterSchema = new mongoose.Schema({
 })
 
 const RegisterModel = mongoose.model("register", RegisterSchema);
+if (mongoose.models['register']) {
+    console.log('UserModel is created.');
+} else {
+    console.log('UserModel is not found.');
+}
+  
 module.exports = RegisterModel;
