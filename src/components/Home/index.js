@@ -144,18 +144,18 @@ const Home = (props) => {
                             </thead>
                             <tbody>
                                 {data.map((item, index) => (
-                                    <tr key={index}>
-                                        <td>{item.name}</td>
-                                        <td>{item.category}</td>
-                                        <td>{item.price}</td>
-                                        <td>{item.quantity}</td>
-                                        <td>{item.description}</td>
-                                    </tr>
+                                   return <tr key={index}>
+                                            <td>{item.name}</td>
+                                            <td>{item.category}</td>
+                                            <td>{item.price}</td>
+                                            <td>{item.quantity}</td>
+                                            <td>{item.description}</td>
+                                        </tr>
                                 ))}
                             </tbody>
                         </table>
                     </div>
-
+        <button onClick={logout} className="button btn">Logout</button>
                 </div>}
         </div>
     )
