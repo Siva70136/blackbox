@@ -6,7 +6,7 @@ const app = express()
 
 app.use(cors(
     {
-        origin: ["https://blackbox-lemon.vercel.app/"],
+        origin: ["https://blackbox-lemon.vercel.app"],
         methods: ["POST", "GET"],
         credentials: false
     }
