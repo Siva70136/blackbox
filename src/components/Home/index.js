@@ -6,7 +6,7 @@ const Home = (props) => {
 
     useEffect(() => {
         const getInfo = async () => {
-            const rseponse = await fetch("https://react-crud-v3am.onrender.com/");
+            const rseponse = await fetch("https://blackbox-ryvn-git-main-siva70136.vercel.app");
             const data = await rseponse.json();
             console.log(data);
         }
@@ -20,9 +20,3 @@ const Home = (props) => {
 };
 
 export default Home;
-
-
-
-
-
-

@@ -1,39 +1,51 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const cors = require('cors')
-//const RegisterModel = require('./models/Register')
+const cors = require("cors")
 
 const app = express()
+
 app.use(cors(
     {
-        origin: ["https://deploy-mern-frontend.vercel.app"],
+        origin: ["https://blackbox-lemon.vercel.app"],
         methods: ["POST", "GET"],
         credentials: true
     }
 ));
 app.use(express.json())
 
-mongoose.connect('mongodb+srv://siva:L7vTobLaY5ndDoaY@cluster0.6nug7fa.mongodb.net/test?retryWrites=true&w=majority');
+
+mongoose.connect('mongodb+srv://siva:L7vTobLaY5ndDoaY@cluster0.6nug7fa.mongodb.net/test?retryWrites=true&w=majority').then(() => {
+    console.log("MongoDB is Connected..")
+}).catch(err => {
+    console.log(err.message);
+})
 
 
 app.get("/", (req, res) => {
-    res.json("Hello");
-})
-app.post('/register', (req, res) => {
-    const {name, email, password} = req.body;
-    RegisterModel.findOne({email: email})
-    .then(user => {
-        if(user) {
-            res.json("Already have an account")
+
+    RegisterModel.find({}, (err, users) => {
+        if (err) {
+            console.error(err);
+            res.status(500).json({ error: 'Internal Server Error' });
         } else {
-            RegisterModel.create({name: name, email: email, password: password})
-            .then(result => res.json(result))
-            .catch(err => res.json(err))
+            res.json(users);
         }
-    }).catch(err => res.json(err))
-})
+    })
+    app.post('/register', (req, res) => {
+        const { name, email, password } = req.body;
+        RegisterModel.findOne({ email: email })
+            .then(user => {
+                if (user) {
+                    res.json("Already have an account")
+                } else {
+                    RegisterModel.create({ name: name, email: email, password: password })
+                        .then(result => res.json(result))
+                        .catch(err => res.json(err))
+                }
+            }).catch(err => res.json(err))
+    })
 
 
-app.listen(3001, () => {
-    console.log("Server is Running")
-})
+    app.listen(3001, () => {
+        console.log("Server is Running")
+    })
