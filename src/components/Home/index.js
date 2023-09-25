@@ -4,10 +4,11 @@ import './index.css'
 
 
 const Home = (props) => {
-    const { manager } = props
-    console.log(manager)
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const { manager } = props
+    console.log(manager)
+    
 
     const [formData, setFormData] = useState({
         name: '',
