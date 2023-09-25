@@ -8,7 +8,7 @@ app.use(cors(
     {
         origin: ["https://blackbox-lemon.vercel.app/"],
         methods: ["POST", "GET"],
-        credentials: true
+        credentials: false
     }
 ));
 app.use(express.json())
