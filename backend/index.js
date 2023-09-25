@@ -23,7 +23,13 @@ mongoose.connect('mongodb+srv://siva:L7vTobLaY5ndDoaY@cluster0.6nug7fa.mongodb.n
 
 app.get("/", (req, res) => {
 
-    res.json("hello");
+"siva".find({}, (err, users) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      res.json(users);
+    }
 })
 app.post('/register', (req, res) => {
     const {name, email, password} = req.body;
