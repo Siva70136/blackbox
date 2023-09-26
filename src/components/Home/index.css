@@ -39,3 +39,18 @@ td {
 }
 
 
+@media screen and (max-width:760px) {
+    table {
+        width: 200%;
+    }
+
+    .texthead {
+        font-size: 16px;
+    }
+
+    th,
+    td {
+        padding: 4px;
+    }
+}
+
