@@ -7,7 +7,7 @@ const Home = (props) => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const { manager } = props
-    console.log(manager)
+    //console.log(manager)
     
 
     const [formData, setFormData] = useState({
@@ -26,7 +26,7 @@ const Home = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         // You can submit the formData to your server here
-        console.log(formData);
+       // console.log(formData);
         try {
             const response = await fetch('https://blackbox-guis-git-main-siva70136.vercel.app/register', {
                 method: 'POST',
@@ -35,7 +35,7 @@ const Home = (props) => {
                 },
                 body: JSON.stringify(formData),
             });
-            console.log("HI");
+            //console.log("HI");
             if (response.ok) {
                 const data = await response.json();
                 console.log('Registration successful:', data);
@@ -60,10 +60,10 @@ const Home = (props) => {
     useEffect(() => {
         const getInfo = async () => {
             setIsLoading(true);
-             console.log("start");
+            // console.log("start");
             const rseponse = await fetch("https://blackbox-guis-siva70136.vercel.app/users");
             const data = await rseponse.json();
-            console.log(data);
+            // console.log(data);
             setIsLoading(false);
             setData(data);
 
@@ -75,7 +75,7 @@ const Home = (props) => {
         auth.signOut();
     };
 
-  console.log(data);
+  // console.log(data);
 
     return (
         <div className='main-container'>
