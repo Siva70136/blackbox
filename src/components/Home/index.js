@@ -83,7 +83,7 @@ const Home = (props) => {
                 <div className="app-container">
 
                     <form  className="form">
-                        <h2 className="textHead">Register Form</h2>
+                        <h2 className="textHead">Add The Stock</h2>
 
                         <p className="left">Name:</p>
                         <input
