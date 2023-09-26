@@ -139,8 +139,9 @@ const Home = (props) => {
                     </form>
                 </div> :
                 <div className="">
+                    <h3 className="textHead">Product Information</h3>
                     <div className="table-container">
-                        <h3 className="textHead">Product Information</h3>
+                        
                         <table>
                             <thead>
                                 <tr>
